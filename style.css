@@ -1,0 +1,58 @@
+
+*{
+    box-sizing: border-box;
+}
+
+.content{
+    text-align: center;
+    margin: 0 auto;
+}
+
+[flappy]{
+    position: relative;
+    border: solid 2px dodgerblue;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    margin: 15%;
+    background-color: lightblue;
+}
+
+.bird{
+    position: absolute;
+    left: calc(50% - 30px);
+    bottom: 50%;
+    background-color: rgb(214, 189, 75);
+    width: 30px;
+    height: 30px;
+}
+
+.barreira-par {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar .borderBar {
+    height: 30px;
+    width: 70px;
+    background: linear-gradient(90deg, #639301, #a5e92e);
+    border: 2px solid grey;
+}
+
+.bar .bodyBar {
+    height: 80px;
+    width: 60px;
+    background: linear-gradient(90deg, #639301, #a5e92e);
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+}
