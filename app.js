@@ -49,10 +49,9 @@ function BarsPair(height, spaceBetween, x){
 }
 
 
-
 const animate = function(){
 
-    let SPEED = 2;
+    let frameSpeed = 2;
 
     const bars1 = new BarsPair(170, 20, 700);
     // const bars2 = new BarsPair(370, 10, 1200);
@@ -65,11 +64,12 @@ const animate = function(){
 
     setInterval(function(){
          barsArr.forEach(function(bar) {
-             bar.setX(bar.getX() - SPEED)
+             bar.setX(bar.getX() - frameSpeed)
+             if(bar.getX() < -100){
+                 bar.setX(900);
+             }
          });
-  
-         // document.querySelector('[flappy]').appendChild(bars2.element)
-     }, 10)
+     }, 10);
 }
 
 animate();
