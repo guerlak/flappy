@@ -11,8 +11,8 @@
 [flappy]{
     position: relative;
     border: solid 2px dodgerblue;
-    width: 400px;
-    height: 300px;
+    width: 800px;
+    height: 600px;
     overflow: hidden;
     margin: 15%;
     background-color: lightblue;

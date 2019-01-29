@@ -18,20 +18,18 @@ function Bar(inverse = false){
     }
 }
 
-
 function BarsPair(height, spaceBetween, x){
 
     this.element = newElement("div", "barreira-par");
-
     this.upperBar = new Bar(true);
-    this.lowerBar = new Bar(false);
+    this.lowerBar = new Bar();
     this.element.appendChild(this.upperBar.el)
     this.element.appendChild(this.lowerBar.el)
 
     this.randomSpaceBetween = () => {
 
-        const heightUpperBar = Math.random() * (height - spaceBetween)
-        const heightLowerBar = height - spaceBetween - heightUpperBar;
+        const heightUpperBar = Math.random() * (height - spaceBetween);
+        const heightLowerBar = height + spaceBetween - heightUpperBar;
 
         this.upperBar.setHeight(heightUpperBar);
         this.lowerBar.setHeight(heightLowerBar);
@@ -50,10 +48,31 @@ function BarsPair(height, spaceBetween, x){
     this.setX(x)
 }
 
-const game = new BarsPair(170, 10, 30);
-const game1 = new BarsPair(170, 10, 210);
 
-document.querySelector('[flappy]').appendChild(game.element)
-document.querySelector('[flappy]').appendChild(game1.element)
+
+const animate = function(){
+
+    let SPEED = 2;
+
+    const bars1 = new BarsPair(170, 20, 700);
+    // const bars2 = new BarsPair(370, 10, 1200);
+
+    let barsArr = [
+        bars1
+    ]
+
+    document.querySelector('[flappy]').appendChild(barsArr[0].element)
+
+    setInterval(function(){
+         barsArr.forEach(function(bar) {
+             bar.setX(bar.getX() - SPEED)
+         });
+  
+         // document.querySelector('[flappy]').appendChild(bars2.element)
+     }, 10)
+}
+
+animate();
+
 
 
